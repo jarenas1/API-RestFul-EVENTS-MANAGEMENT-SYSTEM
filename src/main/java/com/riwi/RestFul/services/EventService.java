@@ -1,8 +1,10 @@
 package com.riwi.RestFul.services;
 
 import com.riwi.RestFul.entities.EventEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 
 public interface EventService {
 

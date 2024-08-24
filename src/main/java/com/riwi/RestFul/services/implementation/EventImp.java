@@ -4,9 +4,10 @@ import com.riwi.RestFul.entities.EventEntity;
 import com.riwi.RestFul.repositories.EventRepository;
 import com.riwi.RestFul.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class EventImp implements EventService {
 
     //INYECTAMOS REPO PARA ACCEDER A LOS METODOS
