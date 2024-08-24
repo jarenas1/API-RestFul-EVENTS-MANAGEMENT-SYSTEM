@@ -22,7 +22,7 @@ public class EventController {
         return eventService.getAll();
     }
 
-    @GetMapping("/new")
+    @PostMapping("/new")
     public EventEntity create(@RequestParam String name, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date date, @RequestParam String ubication, @RequestParam Integer capacity){
         EventEntity eventEntity = new EventEntity();
         eventEntity.setName(name);
@@ -32,7 +32,7 @@ public class EventController {
         eventService.saveEvent(eventEntity);
         return eventEntity;
     }
-    @GetMapping("/update")
+    @PutMapping("/update")
     public EventEntity update(@RequestParam String id, @RequestParam String name, @RequestParam  @DateTimeFormat(pattern = "yyyy-MM-dd") Date date, @RequestParam String ubication, @RequestParam Integer capacity){
         EventEntity eventEntity = new EventEntity();
         eventEntity.setId(id);
@@ -44,8 +44,13 @@ public class EventController {
         return eventEntity;
     }
 
-    @GetMapping("delete/{id}")
+    @DeleteMapping("delete/{id}")
     public void delete(@PathVariable String id){
         eventService.deleteEvent(id);
+    }
+
+    @GetMapping("/findId")
+    public EventEntity findByID(@RequestParam String id){
+        return eventService.getEventById(id);
     }
 }

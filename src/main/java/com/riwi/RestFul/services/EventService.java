@@ -15,4 +15,5 @@ public interface EventService {
     public EventEntity getEventById(String id);
 
     public void deleteEvent(String id);
+
 }
