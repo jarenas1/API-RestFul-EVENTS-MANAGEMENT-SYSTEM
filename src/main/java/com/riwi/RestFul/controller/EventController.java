@@ -3,6 +3,7 @@ package com.riwi.RestFul.controller;
 import com.riwi.RestFul.entities.EventEntity;
 import com.riwi.RestFul.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,8 +22,8 @@ public class EventController {
         return eventService.getAll();
     }
 
-    @PostMapping("/new")
-    public EventEntity create(@RequestParam String name, @RequestParam Date date, @RequestParam String ubication, @RequestParam Integer capacity){
+    @GetMapping("/new")
+    public EventEntity create(@RequestParam String name, @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date date, @RequestParam String ubication, @RequestParam Integer capacity){
         EventEntity eventEntity = new EventEntity();
         eventEntity.setName(name);
         eventEntity.setDate(date);
