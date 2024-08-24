@@ -32,8 +32,8 @@ public class EventController {
         eventService.saveEvent(eventEntity);
         return eventEntity;
     }
-    @PostMapping("/update")
-    public EventEntity update(@RequestParam String id, @RequestParam String name, @RequestParam Date date, @RequestParam String ubication, @RequestParam Integer capacity){
+    @GetMapping("/update")
+    public EventEntity update(@RequestParam String id, @RequestParam String name, @RequestParam  @DateTimeFormat(pattern = "yyyy-MM-dd") Date date, @RequestParam String ubication, @RequestParam Integer capacity){
         EventEntity eventEntity = new EventEntity();
         eventEntity.setId(id);
         eventEntity.setName(name);
@@ -44,7 +44,7 @@ public class EventController {
         return eventEntity;
     }
 
-    @DeleteMapping("delete/{id}")
+    @GetMapping("delete/{id}")
     public void delete(@PathVariable String id){
         eventService.deleteEvent(id);
     }
