@@ -17,8 +17,12 @@ public class EventEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID) //UUID ID'S
     private String id;
+    @Column(name = "name" ,nullable = false)
     private String name;
+    @Column(name = "date" ,nullable = false)
     private Date date;
+    @Column(name = "ubication" ,nullable = false)
     private String ubication;
+    @Column(name = "capacity" ,nullable = false)
     private Integer capacity;
 }
