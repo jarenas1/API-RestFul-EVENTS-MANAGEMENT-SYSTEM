@@ -24,18 +24,11 @@ public class EventController {
 
     @PostMapping("/new")
     public EventEntity create(@RequestBody EventEntity eventEntity){
-        eventService.saveEvent(eventEntity);
+        return eventService.saveEvent(eventEntity);
     }
     @PutMapping("/update")
-    public EventEntity update(@RequestParam String id, @RequestParam String name, @RequestParam  @DateTimeFormat(pattern = "yyyy-MM-dd") Date date, @RequestParam String ubication, @RequestParam Integer capacity){
-        EventEntity eventEntity = new EventEntity();
-        eventEntity.setId(id);
-        eventEntity.setName(name);
-        eventEntity.setDate(date);
-        eventEntity.setUbication(ubication);
-        eventEntity.setCapacity(capacity);
-        eventService.saveEvent(eventEntity);
-        return eventEntity;
+    public EventEntity update(@RequestBody EventEntity eventEntity){
+        return eventService.saveEvent(eventEntity);
     }
 
     @DeleteMapping("delete/{id}")
